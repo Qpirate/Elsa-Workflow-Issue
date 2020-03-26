@@ -1,0 +1,5 @@
+C:\Dev\Code\Elsa.AM.Issue\Elsa.AM.WorkflowCodebase\bin\Debug\netstandard2.0\Elsa.AM.WorkflowCodebase.deps.json
+C:\Dev\Code\Elsa.AM.Issue\Elsa.AM.WorkflowCodebase\bin\Debug\netstandard2.0\Elsa.AM.WorkflowCodebase.dll
+C:\Dev\Code\Elsa.AM.Issue\Elsa.AM.WorkflowCodebase\obj\Debug\netstandard2.0\Elsa.AM.WorkflowCodebase.csprojAssemblyReference.cache
+C:\Dev\Code\Elsa.AM.Issue\Elsa.AM.WorkflowCodebase\obj\Debug\netstandard2.0\Elsa.AM.WorkflowCodebase.AssemblyInfoInputs.cache
+C:\Dev\Code\Elsa.AM.Issue\Elsa.AM.WorkflowCodebase\obj\Debug\netstandard2.0\Elsa.AM.WorkflowCodebase.AssemblyInfo.cs

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Tasks\" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Elsa" Version="1.2.2.29" />
+	  <PackageReference Include="Elsa.Dashboard" Version="1.2.2.29" />
+	  <PackageReference Include="Elsa.Persistence.EntityFrameworkCore" Version="1.2.2.29" />
+	  <PackageReference Include="Elsa.Scripting.JavaScript" Version="1.2.2.29" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.2"></PackageReference>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+  </ItemGroup>
+
+</Project>
