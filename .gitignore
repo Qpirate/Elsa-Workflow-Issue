@@ -339,3 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 *.db
+/Elsa.AM.Issue/appsettings.development.json
