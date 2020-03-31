@@ -1,8 +1,0 @@
-C:\Dev\Code\Elsa.AM.Issue\EM.AM.Issue.Profile\bin\Debug\netstandard2.0\EM.AM.Issue.Profiles.deps.json
-C:\Dev\Code\Elsa.AM.Issue\EM.AM.Issue.Profile\bin\Debug\netstandard2.0\EM.AM.Issue.Profiles.dll
-C:\Dev\Code\Elsa.AM.Issue\EM.AM.Issue.Profile\bin\Debug\netstandard2.0\EM.AM.Issue.Profiles.pdb
-C:\Dev\Code\Elsa.AM.Issue\EM.AM.Issue.Profile\obj\Debug\netstandard2.0\EM.AM.Issue.Profiles.csprojAssemblyReference.cache
-C:\Dev\Code\Elsa.AM.Issue\EM.AM.Issue.Profile\obj\Debug\netstandard2.0\EM.AM.Issue.Profiles.AssemblyInfoInputs.cache
-C:\Dev\Code\Elsa.AM.Issue\EM.AM.Issue.Profile\obj\Debug\netstandard2.0\EM.AM.Issue.Profiles.AssemblyInfo.cs
-C:\Dev\Code\Elsa.AM.Issue\EM.AM.Issue.Profile\obj\Debug\netstandard2.0\EM.AM.Issue.Profiles.dll
-C:\Dev\Code\Elsa.AM.Issue\EM.AM.Issue.Profile\obj\Debug\netstandard2.0\EM.AM.Issue.Profiles.pdb

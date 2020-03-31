@@ -20,41 +20,11 @@ namespace Elsa.AM.Issue
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			/*
-			* 
-			* SCENARIO 2 - Automapper added after call to create Elsa Workflow Items
-			* 
-			*/
-			services.AddWorkflowConfiguration(() => Configuration.GetConnectionString("workflowDataSource"));
 			services.AddAutoMapper(typeof(EM.AM.Issue.Profiles.ClassA).Assembly);
-			/* 
-			 * OUTCOME: Does Not work	   
-			 */
 
-			/*
-			* 
-			* SCENARIO 2 - Automapper added after call to create Elsa Workflow Items, with Advanced Merge Map enabled
-			* 
-			*/
-			//services.AddWorkflowConfiguration(() => Configuration.GetConnectionString("workflowDataSource"));
-			//services.AddAutoMapper(mcExp =>mcExp.Advanced.AllowAdditiveTypeMapCreation= true, typeof(EM.AM.Issue.Profiles.ClassA).Assembly);
-			/* 
-			 * OUTCOME: Does Not work	   
-			 */
-
-			/*
-			 * 
-			 * SCENARIO 3 - Automapper added before call to create Elsa Workflow Items. 
-			 * 
-			 */
-			//services.AddAutoMapper(typeof(EM.AM.Issue.Profiles.ClassA).Assembly);
-			//services.AddWorkflowConfiguration(() => Configuration.GetConnectionString("workflowDataSource"));
-			/* 
-			 * OUTCOME: Works correctly with no modification
-			*/
-
+			services.AddWorkflowConfiguration(() => Configuration.GetConnectionString("workflowDataSource"));
 			services.AddMvc(config => config.EnableEndpointRouting = false)
-			.AddNewtonsoftJson(a => a.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter(new Newtonsoft.Json.Serialization.CamelCaseNamingStrategy(), true)));
+				.AddNewtonsoftJson(a => a.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter(new Newtonsoft.Json.Serialization.CamelCaseNamingStrategy(), true)));
 		}
 
 		public static void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfigurationProvider autoMapper)
@@ -64,17 +34,15 @@ namespace Elsa.AM.Issue
 				app.UseDeveloperExceptionPage();
 				autoMapper.AssertConfigurationIsValid();
 			}
+			app.UseWorkflowConfiguration();
 
-			app.UseHttpsRedirection();
-
-#pragma warning disable MVC1005 // Cannot use UseMvc with Endpoint Routing.
-			app.UseMvc(routes =>
+			app.UseStaticFiles()
+			.UseMvc(routes =>
 			{
 				routes.MapRoute(
 					name: "default",
 					template: "{controller}/{action=Index}/{id?}");
 			});
-#pragma warning restore MVC1005 // Cannot use UseMvc with Endpoint Routing.
 		}
 	}
 }
