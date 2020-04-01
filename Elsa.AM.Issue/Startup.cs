@@ -1,6 +1,4 @@
 using AutoMapper;
-using Elsa.Activities;
-using Elsa.Activities.Http.Activities;
 using Elsa.Activities.Http.Extensions;
 using Elsa.Dashboard.Extensions;
 using Elsa.Persistence.EntityFrameworkCore.DbContexts;
@@ -26,27 +24,13 @@ namespace Elsa.AM.Issue
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddAutoMapper(opt => opt.Advanced.AllowAdditiveTypeMapCreation = true, typeof(Startup).Assembly);
-
-			//services.AddWorkflowConfiguration(() => );
+			services.AddAutoMapper(opt => opt.Advanced.AllowAdditiveTypeMapCreation = true, typeof(Startup).Assembly, typeof(Elsa.Models.ActivityDefinition).Assembly, typeof(Elsa.Persistence.EntityFrameworkCore.Mapping.EntitiesProfile).Assembly);
 
 			services.AddElsa(elsa =>
 			{
 				elsa.AddEntityFrameworkStores<SqlServerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("workflowDataSource")));
 			}).AddHttpActivities()
-			.AddElsaDashboard(
-			options =>
-			{
-				options.Configure(x =>
-				{
-					/*
-					 * If I do not add these two lines then I do not get the Activities registered on the Dashboard. See Ref #260 - https://github.com/elsa-workflows/elsa-core/issues/260
-					 */
-					x.ActivityDefinitions.Discover(t => t.FromAssembliesOf(typeof(SetVariable)));
-					x.ActivityDefinitions.Discover(t => t.FromAssemblies(typeof(ReceiveHttpRequest).Assembly));
-				});
-			});
-
+			.AddElsaDashboard();
 
 			services.AddMvc(config => config.EnableEndpointRouting = false)
 				.AddNewtonsoftJson(a => a.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter(new Newtonsoft.Json.Serialization.CamelCaseNamingStrategy(), true)));
